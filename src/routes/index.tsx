@@ -4,9 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 
-const Auth = createNativeStackNavigator();
+const Auth = createNativeStackNavigator ();
 
 const AuthRoutes: React.FC = () => (
+    
     <Auth.Navigator
         screenOptions={{
             headerShown: false,
@@ -16,6 +17,7 @@ const AuthRoutes: React.FC = () => (
         <Auth.Screen name="SingIn" component={SignIn} />
         <Auth.Screen name="SingUp" component={SignUp} />
     </Auth.Navigator>
+    
 );
 
 export default AuthRoutes;
