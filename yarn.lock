@@ -1362,6 +1362,11 @@
     color "^4.2.3"
     warn-once "^0.1.0"
 
+"@rocketseat/unform@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@rocketseat/unform/-/unform-1.6.2.tgz#7ed267589602f33bb6397c0a5b0596f6ec2bccb9"
+  integrity sha512-jmieDJkFT+QeBu59Fm1NCT2Emmj+dKAE/b7d4jS5bddMw2OOnray+h2EvJsg5EERI2BtzxkVkMzjByxq8Qq3GA==
+
 "@sentry/cli@^1.43.0":
   version "1.74.4"
   resolved "https://registry.npmjs.org/@sentry/cli/-/cli-1.74.4.tgz"
@@ -1777,19 +1782,17 @@
     "@typescript-eslint/types" "5.30.5"
     eslint-visitor-keys "^3.3.0"
 
-"@unform/core@2.1.6", "@unform/core@^2.1.6":
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@unform/core/-/core-2.1.6.tgz#75df5fe813d4e94af46ad3570da068ff13d71b99"
-  integrity sha512-coz9rOS1Y+0zygxTTQB+hY1HJ5ee0A40KBdIy/1IdaiFGT5LhZhCWqMorFh8KcqY3J+SInrpGDMmJYObsjEW9w==
+"@unform/core@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@unform/core/-/core-2.1.0.tgz#28c407f5446ed33d37a023ca931c7b61d2a3b425"
+  integrity sha512-zR8hhVBfpVJRm5nVLi9i5EVEtfFe7NuDwGYhZFVQZjXGS9oPU47ZK/rdssodHA/yEdWCHvtfEX7yldegUQ+pPA==
   dependencies:
-    dot-object "^2.1.4"
+    dot-object "^2.1.2"
 
-"@unform/mobile@^2.1.6":
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@unform/mobile/-/mobile-2.1.6.tgz#d55bfd2a943662a5783287dbe8d2639792d55c47"
-  integrity sha512-ny5xnzj0tFSRISALgc6dUikG6LSeS1SOKCzYXdV625yZ1r72lc7RUExeps3gmHjdvALeXHQodtot/DuFoBSh3w==
-  dependencies:
-    "@unform/core" "2.1.6"
+"@unform/mobile@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@unform/mobile/-/mobile-2.0.0.tgz#728eb6109eaff579ea593cb8ed1635cc151e7403"
+  integrity sha512-xFvhBlZh8u42wYSO8b8zf/3a/xergemNv0C2FK97WaX4BnVpuM0gXPjdRPezWVD36/e71kufKa4i8Hog9to9KQ==
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.6"
@@ -2994,7 +2997,7 @@ domexception@^2.0.1:
   dependencies:
     webidl-conversions "^5.0.0"
 
-dot-object@^2.1.4:
+dot-object@^2.1.2:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/dot-object/-/dot-object-2.1.4.tgz#c6c54e9fca510b4d0ea4d65acf33726963843b5f"
   integrity sha512-7FXnyyCLFawNYJ+NhkqyP9Wd2yzuo+7n9pGiYpkmXCTYa8Ci2U0eUNDVg5OuO5Pm6aFXI2SWN8/N/w7SJWu1WA==
