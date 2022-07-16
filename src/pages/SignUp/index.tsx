@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
 import * as Yup from 'yup';
+import api from '../../services/api';
 
 import getValidationErrors from "../../utils/getValidationErrors";
 
@@ -57,10 +58,14 @@ const SignUp: React.FC = () => {
                 abortEarly: false,
             });
 
-            // await api.post('/users', data);
+            await api.post('/users', data);
 
-            //history.push('/')
+            Alert.alert(
+                'Cadastro realizado com sucesso',
+                'Você já pode fazer login na aplicação.',
+            );
 
+            navigation.goBack();
         } catch (err) { 
             if (err instanceof Yup.ValidationError) {
                 const errors = getValidationErrors(err);
@@ -95,10 +100,7 @@ const SignUp: React.FC = () => {
                             <Title>Crie sua conta</Title>
                         </View>
 
-                        <Form 
-                            ref={formRef} 
-                            onSubmit={handleSignUp} 
-                        >
+                        <Form ref={formRef}onSubmit={handleSignUp}>
                             <Input
                                 autoCapitalize="words"
                                 name="name" 
