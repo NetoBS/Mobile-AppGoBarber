@@ -1,4 +1,12 @@
-import React, { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react';
+import React, { 
+    createContext, 
+    PropsWithChildren, 
+    useCallback, 
+    useContext, 
+    useState, 
+    useEffect, 
+} from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 import api from '../services/api';
 
 interface AuthState {
@@ -21,18 +29,24 @@ interface AuthContextData {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
-    const [data, setData] = useState<AuthState>(() => {
-        const token =localStorage.getItem('@GoBarber:token');
-        const user =localStorage.getItem('@GoBarber:user');
+    const [data, setData] = useState<AuthState>({} as AuthState);
 
-        if (token && user) {
-            return { token, user: JSON.parse(user)};
+    useEffect(() => {
+        async function loadStorageData(): Promise<void> {
+            const [token, user] = await AsyncStorage.multiGet([
+                '@GoBarber:token',
+                '@GoBarber:user',
+            ]);
+
+            if (token[1] && user[1]) {
+                setData({ token: token[1], user: JSON.parse(user[1]) })
+            }
         }
 
-        return {} as AuthState;
-    });
-
-    const signIn = useCallback(async({ email, password }: SignInCredentials) => {
+        loadStorageData
+    }, []);
+       
+    const signIn = useCallback(async ({ email, password }: SignInCredentials) => {
         const response = await api.post('sessions', {
             email,
             password,
@@ -40,15 +54,16 @@ const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
         const { token, user } = response.data;
 
-        localStorage.setItem('@GoBarber:token', token);
-        localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+        await AsyncStorage.multiSet([
+            ['@GoBarber:token', token],
+            ['@GoBarber:user', JSON.stringify(user)],
+        ]);
 
         setData({ token, user });
     }, []);
 
-    const signOut = useCallback(() => {
-        localStorage.removeItem('@GoBarber:token');
-        localStorage.removeItem('@GoBarber:user');
+    const signOut = useCallback(async () => {
+        await AsyncStorage.multiRemove(['@GoBarber:token', '@GoBarber:user']);
 
         setData({} as AuthState);
     }, []);
