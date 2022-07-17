@@ -80,7 +80,7 @@ const SignUp: React.FC = () => {
                 'Ocorreu um erro ao fazer login, cheque as credenciais.',
             );
         }
-    }, []);
+    }, [navigation]);
 
     return (
         <>
