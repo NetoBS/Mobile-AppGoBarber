@@ -7,7 +7,7 @@ interface AppContextData {
 }
 
 const AppProvider: React.FC<AppContextData> = ({ children }) => (
-    <AuthProvider> {children}</AuthProvider>
+    <AuthProvider>{children}</AuthProvider>
 );
 
 export default AppProvider

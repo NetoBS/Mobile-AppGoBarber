@@ -45,7 +45,9 @@ const SignIn: React.FC = () => {
     
     const navigation = useNavigation<any>();
 
-    const { signIn } = useAuth();
+    const { signIn, user } = useAuth();
+
+    console.log(user);
 
     const handleSignIn = useCallback(
         async (data: SignInFormData) => {
@@ -84,7 +86,7 @@ const SignIn: React.FC = () => {
                     'Ocorreu um erro ao fazer login, cheque as credenciais.',
                 );
             }         
-    }, [signIn]);
+    }, []);
 
     return (
         <>
